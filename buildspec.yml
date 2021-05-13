@@ -8,6 +8,6 @@ phases:
       - cd app/build/outputs/apk/release
       - ls
       - keytool -genkey -v -keystore my-release-key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias my-alias
-      - printf '123456\n'
-      - printf '123456\n'
+      - '123456'
+      - '123456'
       - zipalign -v -p 4 app-release-unsigned.apk my-app-unsigned-aligned.apk
