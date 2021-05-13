@@ -3,10 +3,6 @@ version: 0.2
 phases:
   build:
     commands:
-      - chmod +x gradlew
-      - ./gradlew assembleRelease
-      - cd app/build/outputs/apk/release
-      - ls
       - keytool -genkey -v -keystore my-release-key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias my-alias
       - '123456'
       - '123456'
