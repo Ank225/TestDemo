@@ -3,6 +3,8 @@ version: 0.2
 phases:
   build:
     commands:
+      - chmod +x gradlew
+      - ./gradlew assembleRelease
       - cd app/build/outputs/apk/release
       - ls
       - sudo apt-get install -y zipalign
