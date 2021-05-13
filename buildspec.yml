@@ -3,10 +3,6 @@ version: 0.2
 phases:
   build:
     commands:
-      - chmod +x gradlew
-      - ./gradlew assembleRelease
-      - cd app/build/outputs/apk/release
-      - ls
       - sudo apt-get install sudo -y
       - sudo apt-get install -y zipalign
       - zipalign -v -p 4 app-release-unsigned.apk my-app-unsigned-aligned.apk
