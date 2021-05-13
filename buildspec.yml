@@ -1,12 +1,9 @@
 version: 0.2
 
 phases:
-  pre_build:
-    commands:
-      - keytool -genkey -v -keystore my-release-key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias my-alias
-      - printf '123456\n123456\n' | ./script
   build:
     commands:
       - cd app/build/outputs/apk/release
       - ls
+      - sudo apt-get install -y zipalign
       - zipalign -v -p 4 app-release-unsigned.apk my-app-unsigned-aligned.apk
