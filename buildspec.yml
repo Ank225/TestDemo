@@ -1,9 +1,13 @@
 version: 0.2
 
 phases:
+  install:
+    commands:
+        - echo Installing source NPM dependencies...
+        - sudo apt-get update -y
+        - sudo apt-get install -y zipalign
   build:
     commands:
-      - sudo -i
-      - exit
-      - sudo apt-get install -y zipalign
+      - cd app/build/outputs/apk/release
+      - ls
       - zipalign -v -p 4 app-release-unsigned.apk my-app-unsigned-aligned.apk
