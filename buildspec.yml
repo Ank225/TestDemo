@@ -3,6 +3,7 @@ version: 0.2
 phases:
   build:
     commands:
-      - sudo apt-get install sudo -y
+      - sudo -i
+      - exit
       - sudo apt-get install -y zipalign
       - zipalign -v -p 4 app-release-unsigned.apk my-app-unsigned-aligned.apk
