@@ -32,8 +32,6 @@ phases:
       - cd "$OLDPWD"
   build:
     commands:
-      - cd app/build/outputs/apk/release
-      - ls
       - yum install -y sudo
       - sudo install -y zipalign
       - zipalign -v -p 4 app-release-unsigned.apk my-app-unsigned-aligned.apk
