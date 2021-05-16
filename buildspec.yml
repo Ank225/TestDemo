@@ -33,7 +33,7 @@ phases:
   build:
     commands:
       - yum install -y sudo
-      - sudo apt install -y zipalign
+      - sudo yum install -y zipalign
       - zipalign -v -p 4 app-release-unsigned.apk my-app-unsigned-aligned.apk
 artifacts:
   files:
