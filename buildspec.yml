@@ -32,7 +32,12 @@ phases:
       - cd "$OLDPWD"
   build:
     commands:
-      - yum apt-get install -y zipalign
+      - chmod +x gradlew
+      - ./gradlew assembleRelease
+      - cd app/build/outputs/apk/release
+      - ls
+      - yum install -y sudo
+      - sudo apt-get install -y zipalign
       - zipalign -v -p 4 app-release-unsigned.apk my-app-unsigned-aligned.apk
 artifacts:
   files:
