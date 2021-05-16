@@ -3,9 +3,11 @@ version: 0.2
 phases:
   pre_build:
     commands:
+      - ls
       - cd app/src/main/java/com/bikayi/apps
       - mv mydemoapp mydemoapp2
       - cd
+      - ls
       - cd app/src/test/java/com/bikayi/apps
       - mv mydemoapp mydemoapp2
       - cd
