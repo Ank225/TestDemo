@@ -32,7 +32,7 @@ phases:
       - cd "$OLDPWD"
   build:
     commands:
-      - sudo -i
+      - su -
       - apt-get install sudo
       - exit
       - sudo apt-get install -y zipalign
