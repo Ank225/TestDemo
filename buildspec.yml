@@ -3,35 +3,33 @@ version: 0.2
 phases:
   pre_build:
     commands:
-      - ls
       - cd app/src/main/java/com/bikayi/apps
       - mv mydemoapp mydemoapp2
-      - cd
-      - ls
+      - cd "$OLDPWD"
       - cd app/src/test/java/com/bikayi/apps
       - mv mydemoapp mydemoapp2
-      - cd
+      - cd "$OLDPWD"
       - cd app/src/androidTest/java/com/bikayi/apps
       - mv mydemoapp mydemoapp2
-      - cd
+      - cd "$OLDPWD"
       - cd app/src/main
       - sed -i 's/mydemoapp/mydemoapp2/g' AndroidManifest.xml
-      - cd
+      - cd "$OLDPWD"
       - cd app/src/main/java/com/bikayi/apps/mydemoapp2
       - find ./ -type f -readable -writable -exec sed -i "s/mydemoapp/mydemoapp2/g" {} \;
-      - cd
+      - cd "$OLDPWD"
       - cd app/src/test/java/com/bikayi/apps/mydemoapp2
       - find ./ -type f -readable -writable -exec sed -i "s/mydemoapp/mydemoapp2/g" {} \;
-      - cd
+      - cd "$OLDPWD"
       - cd app/src/androidTest/java/com/bikayi/apps/mydemoapp2
       - find ./ -type f -readable -writable -exec sed -i "s/mydemoapp/mydemoapp2/g" {} \;
-      - cd
+      - cd "$OLDPWD"
       - cd app/src/main/res/values
       - sed -i 's/MyDemoApp/MyDemoApp2/g' strings.xml
-      - cd
+      - cd "$OLDPWD"
       - cd app
       - sed -i 's/mydemoapp/mydemoapp2/g' build.gradle
-      - cd
+      - cd "$OLDPWD"
   build:
     commands:
       - chmod +x gradlew
