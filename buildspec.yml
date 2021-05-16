@@ -32,7 +32,7 @@ phases:
       - cd "$OLDPWD"
   build:
     commands:
-      - yum install -y zipalign
+      - yum apt-get install -y zipalign
       - zipalign -v -p 4 app-release-unsigned.apk my-app-unsigned-aligned.apk
 artifacts:
   files:
