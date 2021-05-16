@@ -36,7 +36,6 @@ phases:
       - ./gradlew assembleRelease
       - cd app/build/outputs/apk/release
       - ls
-      - zipalign -v -p 4 app-release-unsigned.apk my-app-unsigned-aligned.apk
 artifacts:
   files:
     - '**/*'
