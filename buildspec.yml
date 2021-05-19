@@ -36,8 +36,9 @@ phases:
       - chmod +x gradlew
       - ./gradlew assembleRelease
       - mkdir output
-      - cp app/build/outputs/apk/release/app-release-unsigned.apk output/app-release-unsigned.apk
-      - cp my-key.jks output/my-key.jks
+      - mkdir storeid
+      - cp app/build/outputs/apk/release/app-release-unsigned.apk output/storeid/app-release-unsigned.apk
+      - cp my-key.jks output/storeid/my-key.jks
 artifacts:
   files:
     - '**/*'
