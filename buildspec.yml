@@ -35,17 +35,11 @@ phases:
       - keytool -genkeypair -dname "cn=Sachin, ou=EnggTeam, o=Bikayi, c=IN" -alias my-alias -keypass 123456 -keystore my-key.jks -keyalg DSA -storepass 123456 -validity 10000
       - chmod +x gradlew
       - ./gradlew assembleRelease
-      - cd app/build/outputs/apk/release
+      - mkdir output
+      - cp app/build/outputs/apk/release/app-release-unsigned.apk output/app-release-unsigned.apk
+      - cp my-key.jks output/my-key.jks
+      - cd output
       - ls
 artifacts:
   files:
-    - '**/*'
-  secondary-artifacts:
-    artifact1:
-      base-directory: apk
-      files:
-        - app/build/outputs/apk/release/app-release-unsigned.apk
-    artifact2:
-      base-directory: key
-      files:
-        - my-key.jks
+    - output
