@@ -3,35 +3,16 @@ version: 0.2
 env:
   variables:
     storeId: "myStoreId"
+    packageName: "demo2"
+    appName: "Demo2"
 phases:
   pre_build:
     commands:
       - cd app/src/main/java/com/bikayi/apps
-      - mv mydemoapp mydemoapp2
+      - mv mydemoapp $packageName
       - cd "$OLDPWD"
-      - cd app/src/test/java/com/bikayi/apps
-      - mv mydemoapp mydemoapp2
-      - cd "$OLDPWD"
-      - cd app/src/androidTest/java/com/bikayi/apps
-      - mv mydemoapp mydemoapp2
-      - cd "$OLDPWD"
-      - cd app/src/main
-      - sed -i 's/mydemoapp/mydemoapp2/g' AndroidManifest.xml
-      - cd "$OLDPWD"
-      - cd app/src/main/java/com/bikayi/apps/mydemoapp2
-      - find ./ -type f -readable -writable -exec sed -i "s/mydemoapp/mydemoapp2/g" {} \;
-      - cd "$OLDPWD"
-      - cd app/src/test/java/com/bikayi/apps/mydemoapp2
-      - find ./ -type f -readable -writable -exec sed -i "s/mydemoapp/mydemoapp2/g" {} \;
-      - cd "$OLDPWD"
-      - cd app/src/androidTest/java/com/bikayi/apps/mydemoapp2
-      - find ./ -type f -readable -writable -exec sed -i "s/mydemoapp/mydemoapp2/g" {} \;
-      - cd "$OLDPWD"
-      - cd app/src/main/res/values
-      - sed -i 's/MyDemoApp/MyDemoApp2/g' strings.xml
-      - cd "$OLDPWD"
-      - cd app
-      - sed -i 's/mydemoapp/mydemoapp2/g' build.gradle
+      - grep -rl mydemoapp . | xargs sed -i 's/mydemoapp/$packageName/g'
+      - grep -rl MyDemoApp . | xargs sed -i 's/MyDemoApp/$appName/g'
       - cd "$OLDPWD"
   build:
     commands:
@@ -47,4 +28,4 @@ phases:
 artifacts:
   files:
     - '**/*'
-  base-directory: 'output'
+  
