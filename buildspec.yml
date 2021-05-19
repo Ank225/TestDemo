@@ -32,6 +32,7 @@ phases:
       - cd "$OLDPWD"
   build:
     commands:
+      - keytool -genkeypair -dname "cn=Sachin, ou=EnggTeam, o=Bikayi, c=IN" -alias my-alias -keypass 123456 -keystore my-key.jks -keyalg DSA -storepass 123456 -validity 10000
       - chmod +x gradlew
       - ./gradlew assembleRelease
       - cd app/build/outputs/apk/release
