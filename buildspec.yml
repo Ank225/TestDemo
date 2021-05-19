@@ -16,7 +16,7 @@ phases:
       - cd "$OLDPWD"
   build:
     commands:
-      - chmod  777 script.sh && ./script.sh
+      - chmod 777 script.sh && ./script.sh
       - chmod +x gradlew
       - ./gradlew assembleRelease
       - mkdir output
