@@ -38,4 +38,4 @@ phases:
       - ls
 artifacts:
   files:
-    - '**/*'
+    - app/build/outputs/apk/release/app-release-unsigned.apk
