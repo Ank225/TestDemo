@@ -11,6 +11,12 @@ phases:
       - cd app/src/main/java/com/bikayi/apps
       - mv mydemoapp $packageName
       - cd "$OLDPWD"
+      - cd app/src/test/java/com/bikayi/apps
+      - mv mydemoapp mydemoapp2
+      - cd "$OLDPWD"
+      - cd app/src/androidTest/java/com/bikayi/apps
+      - mv mydemoapp mydemoapp2
+      - cd "$OLDPWD"
       - grep -rl mydemoapp . | xargs sed -i 's/mydemoapp/$packageName/g'
       - grep -rl MyDemoApp . | xargs sed -i 's/MyDemoApp/$appName/g'
   build:
