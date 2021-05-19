@@ -38,11 +38,14 @@ phases:
       - cd app/build/outputs/apk/release
       - ls
 artifacts:
-  artifact1:
+  files:
+    - '**/*'
+  secondary-artifacts:
+    artifact1:
       base-directory: apk
       files:
         - app/build/outputs/apk/release/app-release-unsigned.apk
-  artifact2:
+    artifact2:
       base-directory: key
       files:
         - my-key.jks
