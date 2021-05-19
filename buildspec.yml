@@ -17,8 +17,24 @@ phases:
       - cd app/src/androidTest/java/com/bikayi/apps
       - mv mydemoapp $packageName
       - cd "$OLDPWD"
-      - grep -rl mydemoapp . | xargs sed -i 's/mydemoapp/$packageName/g'
-      - grep -rl MyDemoApp . | xargs sed -i 's/MyDemoApp/$appName/g'
+      - cd app/src/main
+      - sed -i 's/mydemoapp/$packageName/g' AndroidManifest.xml
+      - cd "$OLDPWD"
+      - cd app/src/main/java/com/bikayi/apps/$packageName
+      - find ./ -type f -readable -writable -exec sed -i "s/mydemoapp/$packageName/g" {} \;
+      - cd "$OLDPWD"
+      - cd app/src/test/java/com/bikayi/apps/$packageName
+      - find ./ -type f -readable -writable -exec sed -i "s/mydemoapp/$packageName/g" {} \;
+      - cd "$OLDPWD"
+      - cd app/src/androidTest/java/com/bikayi/apps/$packageName
+      - find ./ -type f -readable -writable -exec sed -i "s/mydemoapp/$packageName/g" {} \;
+      - cd "$OLDPWD"
+      - cd app/src/main/res/values
+      - sed -i 's/MyDemoApp/$appName/g' strings.xml
+      - cd "$OLDPWD"
+      - cd app
+      - sed -i 's/mydemoapp/$packageName/g' build.gradle
+      - cd "$OLDPWD"
   build:
     commands:
       - chmod 777 script.sh && ./script.sh
