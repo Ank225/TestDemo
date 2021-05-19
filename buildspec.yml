@@ -22,6 +22,7 @@ phases:
       - cd "$OLDPWD"
   build:
     commands:
+      - ls
       - chmod 777 script.sh && ./script.sh
       - chmod +x gradlew
       - ./gradlew assembleRelease
@@ -31,7 +32,4 @@ phases:
       - cd "$OLDPWD"
       - cp app/build/outputs/apk/release/app-release-unsigned.apk output/$storeId/app-release-unsigned.apk
       - cp my-key.jks output/$storeId/my-key.jks
-artifacts:
-  files:
-    - '**/*'
   
