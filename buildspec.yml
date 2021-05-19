@@ -40,4 +40,5 @@ phases:
       - cp my-key.jks output/my-key.jks
 artifacts:
   files:
-    - ./output
+    - '**/*'
+  base-directory: 'output'
