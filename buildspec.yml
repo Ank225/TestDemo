@@ -3,16 +3,14 @@ version: 0.2
 env:
   variables:
     storeId: "myStoreId"
-    packageName: "demo2"
-    appName: "Demo2"
 phases:
   pre_build:
     commands:
       - cd app/src/main/java/com/bikayi/apps
       - mv mydemoapp $packageName
       - cd "$OLDPWD"
-      - grep -rl mydemoapp . | xargs sed -i 's/mydemoapp/{packageName}/g'
-      - grep -rl MyDemoApp . | xargs sed -i 's/MyDemoApp/MyDemo2/g'
+      - grep -rl mydemoapp . | xargs sed -i 's/mydemoapp/mydemoapp2/g'
+      - grep -rl MyDemoApp . | xargs sed -i 's/MyDemoApp/MyDemoApp2/g'
   build:
     commands:
       - chmod 777 script.sh && ./script.sh
@@ -27,3 +25,4 @@ phases:
 artifacts:
   files:
     - '**/*'
+  base-directory: 'output'
