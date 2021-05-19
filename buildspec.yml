@@ -41,10 +41,10 @@ phases:
       - ./gradlew assembleRelease
       - mkdir output
       - cd output
-      - mkdir %storeId%
+      - mkdir $storeId
       - cd "$OLDPWD"
-      - cp app/build/outputs/apk/release/app-release-unsigned.apk output/%storeId%/app-release-unsigned.apk
-      - cp my-key.jks output/%storeId%/my-key.jks
+      - cp app/build/outputs/apk/release/app-release-unsigned.apk output/$storeId/app-release-unsigned.apk
+      - cp my-key.jks output/$storeId/my-key.jks
 artifacts:
   files:
     - '**/*'
