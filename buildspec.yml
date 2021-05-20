@@ -22,6 +22,7 @@ phases:
       - cd "$OLDPWD"
       - cp app/build/outputs/apk/release/app-release-unsigned.apk output/$storeId/app-release-unsigned.apk
       - cp my-key.jks output/$storeId/my-key.jks
+      - aws configure set default.s3.signature_version s3v4
 artifacts:
   files:
     - '**/*'
