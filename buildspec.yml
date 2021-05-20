@@ -10,18 +10,18 @@ phases:
       - cd app/src/main/java/com/bikayi/apps
       - mv mydemoapp $packageName
       - cd "$OLDPWD"
-      - grep -rl mydemoapp . | xargs sed -i "s/mydemoapp/$packageName/g"
+      - grep -rl mydemoapp . | xargs sed -i 's/mydemoapp/mydemoapp2/g'
       - grep -rl MyDemoApp . | xargs sed -i 's/MyDemoApp/MyDemoApp2/g'
   build:
     commands:
       - chmod 777 script.sh && ./script.sh
       - chmod +x gradlew
-      - ./gradlew assembleRelease
+      - ./gradlew assembleDebug
       - mkdir output
       - cd output
       - mkdir $storeId
       - cd "$OLDPWD"
-      - cp app/build/outputs/apk/release/app-release-unsigned.apk output/$storeId/app-release-unsigned.apk
+      - cp app/build/outputs/apk/release/app-release-unsigned.apk output/$storeId/app-debug.apk
       - cp my-key.jks output/$storeId/my-key.jks
 artifacts:
   files:
