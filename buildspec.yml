@@ -21,7 +21,7 @@ phases:
       - cd output
       - mkdir $storeId
       - cd "$OLDPWD"
-      - cp app/build/outputs/apk/release/app-debug.apk output/$storeId/app-debug.apk
+      - cp app/build/outputs/apk/debug/app-debug.apk output/$storeId/app-debug.apk
       - cp my-key.jks output/$storeId/my-key.jks
 artifacts:
   files:
