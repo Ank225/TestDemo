@@ -10,7 +10,7 @@ phases:
       - cd app/src/main/java/com/bikayi/apps
       - mv mydemoapp $packageName
       - cd "$OLDPWD"
-      - grep -rl mydemoapp . | xargs sed -i "s/mydemoapp/$packageName"/g"
+      - grep -rl mydemoapp . | xargs sed -i "s/mydemoapp/$packageName/g"
       - grep -rl MyDemoApp . | xargs sed -i 's/MyDemoApp/MyDemoApp2/g'
   build:
     commands:
